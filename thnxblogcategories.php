@@ -26,12 +26,12 @@
 
 use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
 
-class thnxBlogCategories extends Module implements WidgetInterface
+class ThnxBlogCategories extends Module implements WidgetInterface
 { 
     public $css_files = array(
         array(
-            'key' => 'thnxBlogCategories',
-            'src' => 'thnxBlogCategories.css',
+            'key' => 'ThnxBlogCategories',
+            'src' => 'ThnxBlogCategories.css',
             'priority' => 50,
             'media' => 'all',
             'load_theme' => false,
@@ -39,8 +39,8 @@ class thnxBlogCategories extends Module implements WidgetInterface
     );
     public $js_files = array(
         array(
-            'key' => 'thnxBlogCategories',
-            'src' => 'thnxBlogCategories.js',
+            'key' => 'ThnxBlogCategories',
+            'src' => 'ThnxBlogCategories.js',
             'priority' => 50,
             'position' => 'bottom', // bottom or head
             'load_theme' => false,
@@ -48,7 +48,7 @@ class thnxBlogCategories extends Module implements WidgetInterface
     );
     public function __construct()
     { 
-        $this->name = 'thnxBlogCategories';
+        $this->name = 'ThnxBlogCategories';
         $this->tab = 'front_office_features';
         $this->version = '1.0.0';
         $this->author = 'thanks-idea.com';
@@ -160,7 +160,7 @@ class thnxBlogCategories extends Module implements WidgetInterface
     { 
         if(Module::isInstalled('thnxblog') && Module::isEnabled('thnxblog')){ 
             $this->smarty->assign($this->getWidgetVariables($hookName,$configuration));
-            return $this->fetch('module:'.$this->name.'/views/templates/front/thnxBlogCategories.tpl');
+            return $this->fetch('module:'.$this->name.'/views/templates/front/ThnxBlogCategories.tpl');
         }else{ 
             return false;
         }
@@ -172,13 +172,13 @@ class thnxBlogCategories extends Module implements WidgetInterface
             $id_lang = (int)$this->context->language->id;
             $thnxbc_title = Configuration::get('thnxbc_title_'.$id_lang);
             $thnxbc_tagcount = Configuration::get('thnxbc_tagcount');
-            $thnxBlogCategories = array();
-            $thnxBlogCategories = thnxpostsclass::GetBlogTags($thnxbc_tagcount,'category');
+            $ThnxBlogCategories = array();
+            $ThnxBlogCategories = thnxpostsclass::GetBlogTags($thnxbc_tagcount,'category');
             return array(
                     'thnxbc_title' => $thnxbc_title,
                     'thnxbc_tagcount' => $thnxbc_tagcount,
                     'hookName' => $hookName,
-                    'thnxBlogCategories' => $thnxBlogCategories,
+                    'ThnxBlogCategories' => $ThnxBlogCategories,
                 );
         }else{ 
             return false;
