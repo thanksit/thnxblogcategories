@@ -80,7 +80,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
         if (!parent::uninstall() 
         ) { 
         return false;
-        }else{ 
+        } else{ 
         return true;
         }
     }
@@ -160,7 +160,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
         if(Module::isInstalled('thnxblog')  && Module::isEnabled('thnxblog') ) { 
         $this->smarty->assign($this->getWidgetVariables($hookName,$configuration) );
         return $this->fetch('module:'.$this->name.'/views/templates/front/ThnxBlogCategories.tpl');
-        }else{ 
+        } else{ 
         return false;
         }
     }
@@ -179,7 +179,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
                 'hookName' => $hookName,
                 'ThnxBlogCategories' => $ThnxBlogCategories,
             );
-        }else{ 
+        } else{ 
         return false;
         }
     }
@@ -191,10 +191,10 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
         $content = Tools::file_get_contents($path);
         if(empty($content) ) { 
             return false;
-        }else{ 
+        } else{ 
             return true;
         }
-        }else{ 
+        } else{ 
         return false;
         }
     }
@@ -212,7 +212,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
                 $page = (isset($css_file['page'])  && !empty($css_file['page']) )  ? $css_file['page'] : array('all');
                 if(is_array($page) ) { 
                 $pages = $page;
-                }else{ 
+                } else{ 
                 $pages = array($page);
                 }
                 if(in_array($page_name, $pages)  || in_array('all', $pages) ) { 
@@ -228,7 +228,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
                         ) 
                         );
                     }
-                }else{ 
+                } else{ 
                     $module_file_src = 'modules/'.$this->name.'/views/css/'.$css_file['src'];
                     if(self::isEmptyFileContet($root_path.$module_file_src) ) { 
                         $this->context->controller->registerStylesheet(
@@ -260,7 +260,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
                 $page = (isset($css_file['page'])  && !empty($css_file['page']) )  ? $css_file['page'] : array('all');
                 if(is_array($page) ) { 
                 $pages = $page;
-                }else{ 
+                } else{ 
                 $pages = array($page);
                 }
                 if(in_array($page_name, $pages)  || in_array('all', $pages) ) { 
@@ -276,7 +276,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
                         ) 
                         );
                     }
-                }else{ 
+                } else{ 
                     $module_file_src = 'modules/'.$this->name.'/views/js/'.$js_file['src'];
                     if(self::isEmptyFileContet($root_path.$module_file_src) ) { 
                         $this->context->controller->registerJavascript(
