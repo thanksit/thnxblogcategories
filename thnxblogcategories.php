@@ -47,7 +47,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface{
     ) ;
     public function __construct() 
     { 
-        $this->name = 'ThnxBlogCategories';
+        $this->name = 'thnxblogcategories';
         $this->tab = 'front_office_features';
         $this->version = '1.0.0';
         $this->author = 'thanksit.com';
