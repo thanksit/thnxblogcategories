@@ -122,7 +122,7 @@ class thnxblogcategories extends Module implements WidgetInterface{
 		$html .= $helper->generateForm($this->fields_form);
 		return $html;
 	}
-	public function renderWidget($hookName = null, array $configuration = [])
+	public function renderWidget($hookName = null, array $configuration = array())
 	{
 		if( Module::isInstalled('thnxblog') && Module::isEnabled('thnxblog') ){
 	    	$this->smarty->assign($this->getWidgetVariables($hookName,$configuration));
@@ -131,7 +131,7 @@ class thnxblogcategories extends Module implements WidgetInterface{
 			return false;
 		}
 	}
-	public function getWidgetVariables($hookName = null, array $configuration = [])
+	public function getWidgetVariables($hookName = null, array $configuration = array())
 	{
 	    if(Module::isInstalled('thnxblog') && Module::isEnabled('thnxblog')){
 		    $id_lang = (int)$this->context->language->id;
