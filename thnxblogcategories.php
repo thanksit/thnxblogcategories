@@ -25,7 +25,9 @@
 */
 
 use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
-class thnxblogcategories extends Module implements WidgetInterface{
+
+class thnxblogcategories extends Module implements WidgetInterface
+{
     public $css_files = array(
         array(
             'key' => 'thnxblogcategories',
@@ -44,7 +46,8 @@ class thnxblogcategories extends Module implements WidgetInterface{
             'load_theme' => false,
         ),
     );
-    public function __construct(){
+    public function __construct()
+    {
         $this->name = 'thnxblogcategories';
         $this->tab = 'front_office_features';
         $this->version = '1.0.0';
@@ -57,12 +60,14 @@ class thnxblogcategories extends Module implements WidgetInterface{
         $this->ps_versions_compliancy = array('min' => '1.7', 'max' => _PS_VERSION_);
     }
     // For installation service
-    public function install() {
+    public function install()
+    {
         if (!parent::install()
             || !$this->registerHook('displaythnxblogright')
             || !$this->registerHook('displaythnxblogleft')
-            )
+            ){
             return false;
+        }
             $languages = Language::getLanguages(false);
             foreach($languages as $lang){
                 Configuration::updateValue('thnxbc_title_'.$lang['id_lang'],"Blog Categories");
@@ -71,15 +76,18 @@ class thnxblogcategories extends Module implements WidgetInterface{
             return true;
     }
     // For uninstallation service
-    public function uninstall() {
+    public function uninstall()
+    {
         if (!parent::uninstall()
-            )
+            ){
             return false;
-        else
+        }else{
             return true;
+        }
     }
     // Helper Form for Html markup generate
-    public function SettingForm() {
+    public function SettingForm()
+    {
         $default_lang = (int) Configuration::get('PS_LANG_DEFAULT');
         $this->fields_form[0]['form'] = array(
             'legend' => array(
@@ -134,7 +142,8 @@ class thnxblogcategories extends Module implements WidgetInterface{
         return $helper;
     }
     // All Functional Logic here.
-    public function getContent() {
+    public function getContent()
+    {
         $html = '';
         if (Tools::isSubmit('save' . $this->name)) {
             $languages = Language::getLanguages(false);
@@ -175,7 +184,8 @@ class thnxblogcategories extends Module implements WidgetInterface{
             return false;
         }
     }
-    public static function isEmptyFileContet($path = null){
+    public static function isEmptyFileContet($path = null)
+    {
         if($path == null)
             return false;
         if(file_exists($path)){
@@ -286,7 +296,8 @@ class thnxblogcategories extends Module implements WidgetInterface{
         }
         return true;
     }
-    public function hookdisplayheader($params) {
+    public function hookdisplayheader($params)
+    {
         $this->Register_Css();
         $this->Register_Js();
     }
