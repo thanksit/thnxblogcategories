@@ -26,8 +26,7 @@
 
 use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
 
-class ThnxBlogCategories extends Module implements WidgetInterface
-{ 
+class ThnxBlogCategories extends Module implements WidgetInterface{  
     public $css_files = array(
         array(
             'key' => 'ThnxBlogCategories',
