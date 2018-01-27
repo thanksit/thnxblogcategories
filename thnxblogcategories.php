@@ -113,7 +113,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
         $helper->name_controller = $this->name;
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->currentIndex = AdminController::$currentIndex . '&configure=' . $this->name;
-        foreach (Language::getLanguages(false)  as $lang)  { 
+        foreach (Language::getLanguages(false) as $lang)  { 
         $helper->languages[] = array(
             'id_lang' => $lang['id_lang'],
             'iso_code' => $lang['iso_code'],
