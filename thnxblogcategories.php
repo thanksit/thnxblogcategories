@@ -68,7 +68,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
         return false;
         }
         $languages = Language::getLanguages(false);
-        foreach($languages as $lang) { 
+        foreach ($languages as $lang) { 
             Configuration::updateValue('thnxbc_title_'.$lang['id_lang'],"Blog Categories");
         }
         Configuration::updateValue('thnxbc_tagcount',4);
@@ -134,7 +134,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
         $helper->toolbar_scroll = true;
         $helper->submit_action = 'save' . $this->name;
         $languages = Language::getLanguages(false);
-        foreach($languages as $lang) { 
+        foreach ($languages as $lang) { 
             $helper->fields_value['thnxbc_title'][$lang['id_lang']] = Configuration::get('thnxbc_title_'.$lang['id_lang']);
         }
         $helper->fields_value['thnxbc_tagcount'] = Configuration::get('thnxbc_tagcount');
@@ -146,7 +146,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
         $html = '';
         if (Tools::isSubmit('save' . $this->name) )  { 
         $languages = Language::getLanguages(false);
-           foreach($languages as $lang) { 
+           foreach ($languages as $lang) { 
                 Configuration::updateValue('thnxbc_title_'.$lang['id_lang'],Tools::getvalue('thnxbc_title_'.$lang['id_lang']) );
            }
             Configuration::updateValue('thnxbc_tagcount',Tools::getvalue('thnxbc_tagcount') );
@@ -205,7 +205,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
         $page_name = $this->context->controller->php_self;
         $root_path = _PS_ROOT_DIR_.'/';
         $css_file = array();
-        foreach($this->css_files as $css_file) :
+        foreach ($this->css_files as $css_file) :
             if(isset($css_file['key'])  && !empty($css_file['key'])  && isset($css_file['src'])  && !empty($css_file['src']) ) { 
                 $media = (isset($css_file['media'])  && !empty($css_file['media']) )  ? $css_file['media'] : 'all';
                 $priority = (isset($css_file['priority'])  && !empty($css_file['priority']) )  ? $css_file['priority'] : 50;
@@ -253,7 +253,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface {
         $theme_name = $this->context->shop->theme_name;
         $page_name = $this->context->controller->php_self;
         $root_path = _PS_ROOT_DIR_.'/';
-        foreach($this->js_files as $js_file) :
+        foreach ($this->js_files as $js_file) :
             if(isset($js_file['key'])  && !empty($js_file['key'])  && isset($js_file['src'])  && !empty($js_file['src']) ) { 
                 $position = (isset($js_file['position'])  && !empty($js_file['position']) )  ? $js_file['position'] : 'bottom';
                 $priority = (isset($js_file['priority'])  && !empty($js_file['priority']) )  ? $js_file['priority'] : 50;
