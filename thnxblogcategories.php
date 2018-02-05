@@ -135,7 +135,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface
         $helper->toolbar_scroll = true;
         $helper->submit_action = 'save' . $this->name;
         $languages = Language::getLanguages(false);
-        foreach ($languages as $lang) { 
+        foreach ($languages as $lang) {
             $helper->fields_value['thnxbc_title'][$lang['id_lang']] = Configuration::get('thnxbc_title_'.$lang['id_lang']);
         }
         $helper->fields_value['thnxbc_tagcount'] = Configuration::get('thnxbc_tagcount');
@@ -208,7 +208,7 @@ class ThnxBlogCategories extends Module implements WidgetInterface
             $root_path = _PS_ROOT_DIR_.'/';
             $css_file = array();
             foreach ($this->css_files as $css_file) :
-                if (isset($css_file['key'])  && !empty($css_file['key'])  && isset($css_file['src'])  && !empty($css_file['src'])) { 
+                if (isset($css_file['key'])  && !empty($css_file['key'])  && isset($css_file['src'])  && !empty($css_file['src'])) {
                     $media = (isset($css_file['media'])  && !empty($css_file['media']))  ? $css_file['media'] : 'all';
                     $priority = (isset($css_file['priority'])  && !empty($css_file['priority']))  ? $css_file['priority'] : 50;
                     $page = (isset($css_file['page'])  && !empty($css_file['page']))  ? $css_file['page'] : array('all');
@@ -222,8 +222,8 @@ class ThnxBlogCategories extends Module implements WidgetInterface
                             $theme_file_src = 'themes/'.$theme_name.'/assets/css/'.$css_file['src'];
                             if (self::isEmptyFileContet($root_path.$theme_file_src)) {
                                 $this->context->controller->registerStylesheet(
-                                $css_file['key'],
-                                $theme_file_src,
+                                    $css_file['key'],
+                                    $theme_file_src,
                                     array(
                                         'media' => $media,
                                         'priority' => $priority
@@ -234,8 +234,8 @@ class ThnxBlogCategories extends Module implements WidgetInterface
                             $module_file_src = 'modules/'.$this->name.'/views/css/'.$css_file['src'];
                             if (self::isEmptyFileContet($root_path.$module_file_src)) {
                                 $this->context->controller->registerStylesheet(
-                                $css_file['key'],
-                                $module_file_src,
+                                    $css_file['key'],
+                                    $module_file_src,
                                     array(
                                         'media' => $media,
                                         'priority' => $priority
@@ -270,8 +270,8 @@ class ThnxBlogCategories extends Module implements WidgetInterface
                             $theme_file_src = 'themes/'.$theme_name.'/assets/js/'.$js_file['src'];
                             if (self::isEmptyFileContet($root_path.$theme_file_src)) {
                                 $this->context->controller->registerJavascript(
-                                $js_file['key'],
-                                $theme_file_src,
+                                    $js_file['key'],
+                                    $theme_file_src,
                                     array(
                                         'position' => $position,
                                         'priority' => $priority
@@ -282,8 +282,8 @@ class ThnxBlogCategories extends Module implements WidgetInterface
                             $module_file_src = 'modules/'.$this->name.'/views/js/'.$js_file['src'];
                             if (self::isEmptyFileContet($root_path.$module_file_src)) {
                                 $this->context->controller->registerJavascript(
-                                $js_file['key'],
-                                $module_file_src,
+                                    $js_file['key'],
+                                    $module_file_src,
                                     array(
                                         'position' => $position,
                                         'priority' => $priority
